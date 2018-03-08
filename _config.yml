@@ -4,7 +4,7 @@
 baseurl:
 url: https://shawn2016.github.io
 date_format: "ordinal"
-title: 码志
+title: shawn
 subtitle: "打码改变人生"
 description: "马壮的个人博客"
 keywords: 码志, Zhuang Ma, mzlogin, mazhuang
@@ -15,12 +15,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: shawn
+organization: nodedai.com
+organization_url: http://nodedai.com
+github_username: shawn2016
+location: Beijing, China
+email: 787990963@qq.com
 
 # ---------------- #
 #    Navigation    #
