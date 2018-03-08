@@ -8,13 +8,20 @@ menu: 关于
 permalink: /about/
 ---
 
-不放弃，你就可以做成你想做的事，成为你想成为的人。
+## 个人简历
+- 姓名：戴志祥
+- 昵称：shawn
+- 职业：全干工程师
+- 爱好：听音乐 撸代码
+- 个人定位：全栈工程师（Full Stack Developer）
+- 职业技能：JavaScript、Node.js、React、Vue、bootstrap、angularJs、Es6等
 
-## 联系
 
-{% for website in site.data.social %}
-* {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
-{% endfor %}
+## 联系方式
+- 邮箱：787990963@qq.com
+- Github: [https://github.com/shawn2016](https://github.com/shawn2016 "https://github.com/shawn2016")
+- 掘金：[https://juejin.im/user/58acd7348fd9c50067feb4f1](https://juejin.im/user/58acd7348fd9c50067feb4f1 "https://juejin.im/user/58acd7348fd9c50067feb4f1")
+- 博客园：[https://home.cnblogs.com/u/dzx-shawn/](https://home.cnblogs.com/u/dzx-shawn/ "https://home.cnblogs.com/u/dzx-shawn/")
 
 ## Skill Keywords
 
