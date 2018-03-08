@@ -1,6 +1,6 @@
 # 码志
 
-我的个人博客：<http://mazhuang.org>，欢迎 Star 和 Fork。
+我的个人博客：<https://shawn2016.github.io>，欢迎 Star 和 Fork。
 
 ## 概览
 
@@ -16,9 +16,13 @@
 
 ## 效果预览
 
-**[在线预览 &rarr;](http://mazhuang.org)**
+**[在线预览 &rarr;](https://shawn2016.github.io)**
 
-![screenshot home](http://mazhuang.org/assets/images/screenshots/home.png)
+![screenshot home](https://shawn2016.github.io/assets/images/screenshots/shawn1.png)
+![screenshot home](https://shawn2016.github.io/assets/images/screenshots/shawn2.png)
+![screenshot home](https://shawn2016.github.io/assets/images/screenshots/shawn3.png)
+![screenshot home](https://shawn2016.github.io/assets/images/screenshots/shawn4.png)
+
 
 ## Fork 指南
 
@@ -75,8 +79,8 @@ Fork 本项目之后，还需要做一些事情才能让你的页面「正确」
 
 ## 致谢
 
-本博客外观基于 [DONGChuan](http://dongchuan.github.io) 修改，感谢！
+本博客外观基于 [mzlogin](https://github.com/mzlogin/mzlogin.github.io) 修改，感谢！
 
 [1]: https://github.com/mzlogin/chinese-copywriting-guidelines
 [2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
-[3]: https://github.com/mzlogin/mzlogin.github.io/issues/2
+[3]: https://github.com/mzlogin/mzlogin.github.io
