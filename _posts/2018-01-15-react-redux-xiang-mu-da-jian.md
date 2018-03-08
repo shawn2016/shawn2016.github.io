@@ -1,7 +1,7 @@
 ---
 layout: post
 title: react-redux 项目搭建
-categories: react-redux 项目搭建
+categories: React
 description: react-redux 项目搭建
 keywords: es6,React,redux
 ---
