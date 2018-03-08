@@ -39,10 +39,6 @@ navs:
     label: 链接
 
   -
-    href: /blog/
-    label: 博客
-
-  -
     href: /about/
     label: 关于
 
