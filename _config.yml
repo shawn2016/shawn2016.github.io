@@ -73,7 +73,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: shawn2016.github.io
+repository: shawn2016/shawn2016.github.io
 
 # ---------------- #
 #      Comments    #
