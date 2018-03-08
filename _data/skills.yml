@@ -1,9 +1,12 @@
 - name: Software Engineer Keywords
   keywords:
-      - Java
-      - C++
-      - Python
-      - Design Patterns
+      - JavaScript
+      - Node
+      - React
+      - Vue
+      - Bootstrap
+      - AngularJs
+      - Es6
 
 - name: Mobile Developer Keywords
   keywords:

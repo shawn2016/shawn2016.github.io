@@ -35,10 +35,6 @@ navs:
     label: 分类
 
   -
-    href: /wiki/
-    label: 维基
-
-  -
     href: /links/
     label: 链接
 
@@ -77,7 +73,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: shawn2016.github.io
 
 # ---------------- #
 #      Comments    #
@@ -91,17 +87,17 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
+    owner: shawn
     repo: blog-comments
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: 294d78262df1b560504f
+        client_secret: 0d6ec65cf32df17b111dea255d81d74d6630921d
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: mzlogin
     repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    clientID: 294d78262df1b560504f
+    clientSecret: 0d6ec65cf32df17b111dea255d81d74d6630921d
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
