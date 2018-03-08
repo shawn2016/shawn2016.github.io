@@ -22,8 +22,8 @@ permalink: /about/
 - Github: [https://github.com/shawn2016](https://github.com/shawn2016 "https://github.com/shawn2016")
 - 掘金：[https://juejin.im/user/58acd7348fd9c50067feb4f1](https://juejin.im/user/58acd7348fd9c50067feb4f1 "https://juejin.im/user/58acd7348fd9c50067feb4f1")
 - 博客园：[https://home.cnblogs.com/u/dzx-shawn/](https://home.cnblogs.com/u/dzx-shawn/ "https://home.cnblogs.com/u/dzx-shawn/")
-
-## Skill Keywords
+- 个人网站：[http://nodedai.com/](http://nodedai.com/ "http://nodedai.com/")
+## 技能关键字
 
 {% for category in site.data.skills %}
 ### {{ category.name }}
