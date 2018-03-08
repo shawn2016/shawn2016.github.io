@@ -1,3 +1,11 @@
+---
+layout: post
+title: ES6中的对象字面量
+categories: ES6
+description: 学习对象字面量
+keywords: es6
+---
+
 ## 对象字面量
 
 ES6针对对象字面量做了许多简化语法的处理。

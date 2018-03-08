@@ -1,3 +1,11 @@
+---
+layout: post
+title: ES6中的解析结构
+categories: ES6
+description: 学习解析结构
+keywords: es6
+---
+
 ## 解析结构
 
 解析结构是一种全新的写法，我们只需要使用一个例子，大家就能够明白解析结构到底是怎么一回事儿。

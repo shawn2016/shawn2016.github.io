@@ -1,3 +1,11 @@
+---
+layout: post
+title: ES6中的函数默认参数
+categories: ES6
+description: 学习函数默认参数
+keywords: es6
+---
+
 ## 函数默认参数
 
 之前我们不能直接为函数指定默认参数，因此很多时候为了保证传入的参数具备一个默认值，我们常常使用如下的方法：

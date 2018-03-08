@@ -1,4 +1,12 @@
-### 箭头函数
+---
+layout: post
+title: ES6中的箭头函数
+categories: ES6
+description: 学习箭头函数
+keywords: es6
+---
+
+## 箭头函数
 
 之前我说ES6颠覆了js的编码习惯，箭头函数的使用占了很大一部分。
 

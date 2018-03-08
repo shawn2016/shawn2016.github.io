@@ -1,3 +1,10 @@
+---
+layout: post
+title: ES6中的展开运算符
+categories: ES6
+description: 展开运算符
+keywords: es6
+---
 ## 展开运算符
 
 在ES6中用`...`来表示展开运算符，它可以将数组方法或者对象进行展开。先来看一个例子它是如何使用的。

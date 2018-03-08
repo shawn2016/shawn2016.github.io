@@ -1,3 +1,10 @@
+---
+layout: post
+title: ES6中的新的变量声明方式
+categories: ES6
+description: 新的变量声明方式
+keywords: es6
+---
 ## 新的变量声明方式 let/const
 
 与var不同，新的变量声明方式带来了一些不一样的特性，其中最重要的两个特性就是提供了块级作用域与不再具备变量提升。
