@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 724" font-family="-apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <rect width="640" height="724" fill="#f7f8f5"/>
+  <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse">
+    <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#e8ebe4" stroke-width="1"/>
+  </pattern>
+  <rect width="640" height="724" fill="url(#g)"/>
+
+  <text x="24" y="44" font-size="18" font-weight="700" fill="#303c35">167 行的入口，18 份参考</text>
+  <text x="24" y="68" font-size="13.5" fill="#8a8f86">入口只放路由和门槛，具体做法等对应的问题出现才打开</text>
+
+  <!-- 入口 -->
+  <rect x="24" y="92" width="592" height="96" rx="12" fill="#ffffff" stroke="#dfe3da" stroke-width="1.5"/>
+  <text x="44" y="132" font-size="18" font-weight="700" fill="#303c35" font-family="ui-monospace, 'SF Mono', Menlo, monospace">SKILL.md</text>
+  <text x="44" y="158" font-size="13" fill="#8a8f86">167 行 · 8,431 字符</text>
+  <line x1="214" y1="112" x2="214" y2="168" stroke="#e8ebe4" stroke-width="1.5"/>
+  <text x="234" y="134" font-size="13.5" fill="#4a544c">五步主流程 · 场景路由 · 何时不用它 · 能力边界</text>
+  <text x="234" y="160" font-size="13" fill="#8a8f86">只讲这一步要交出什么、交不出会怎样</text>
+
+  <!-- 定方向 -->
+  <rect x="24" y="204" width="592" height="96" rx="12" fill="#ffffff" stroke="#dfe3da" stroke-width="1.5"/>
+  <text x="44" y="234" font-size="15" font-weight="700" fill="#303c35">定方向</text>
+  <text x="106" y="234" font-size="12.5" fill="#8a8f86">6 份 · 493 行</text>
+  <g font-size="13.5" fill="#4a544c">
+    <rect x="44" y="248" width="105" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="96" y="267" text-anchor="middle">认品类拆标杆</text>
+    <rect x="157" y="248" width="92" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="203" y="267" text-anchor="middle">调性五刻度</text>
+    <rect x="257" y="248" width="92" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="303" y="267" text-anchor="middle">模糊词翻译</text>
+    <rect x="357" y="248" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="396" y="267" text-anchor="middle">灰度骨架</text>
+    <rect x="443" y="248" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="482" y="267" text-anchor="middle">差异检验</text>
+    <rect x="529" y="248" width="64" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="561" y="267" text-anchor="middle">对比页</text>
+  </g>
+
+  <!-- 做页面 -->
+  <rect x="24" y="314" width="592" height="96" rx="12" fill="#ffffff" stroke="#dfe3da" stroke-width="1.5"/>
+  <text x="44" y="344" font-size="15" font-weight="700" fill="#303c35">做页面</text>
+  <text x="106" y="344" font-size="12.5" fill="#8a8f86">5 份 · 505 行</text>
+  <g font-size="13.5" fill="#4a544c">
+    <rect x="44" y="358" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="83" y="377" text-anchor="middle">视觉语言</text>
+    <rect x="130" y="358" width="92" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="176" y="377" text-anchor="middle">素材与贴图</text>
+    <rect x="230" y="358" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="269" y="377" text-anchor="middle">动效三处</text>
+    <rect x="316" y="358" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="355" y="377" text-anchor="middle">滚动叙事</text>
+    <rect x="402" y="358" width="92" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="448" y="377" text-anchor="middle">视口与还原</text>
+  </g>
+
+  <!-- 验收 -->
+  <rect x="24" y="424" width="592" height="96" rx="12" fill="#ffffff" stroke="#dfe3da" stroke-width="1.5"/>
+  <text x="44" y="454" font-size="15" font-weight="700" fill="#303c35">验收与交付</text>
+  <text x="126" y="454" font-size="12.5" fill="#8a8f86">7 份 · 308 行</text>
+  <g font-size="13.5" fill="#4a544c">
+    <rect x="44" y="468" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="83" y="487" text-anchor="middle">评审手册</text>
+    <rect x="130" y="468" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="169" y="487" text-anchor="middle">派发协议</text>
+    <rect x="216" y="468" width="72" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="252" y="487" text-anchor="middle">UX 走查</text>
+    <rect x="296" y="468" width="64" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="328" y="487" text-anchor="middle">工作区</text>
+    <rect x="368" y="468" width="78" height="28" rx="14" fill="#eef0ea" stroke="#d8dcd2"/><text x="407" y="487" text-anchor="middle">工具用法</text>
+  </g>
+
+  <!-- 底层工程 -->
+  <rect x="24" y="536" width="592" height="152" rx="12" fill="#eef0ea" stroke="#c2c9bc" stroke-width="1.5"/>
+  <text x="44" y="568" font-size="14" font-weight="700" fill="#303c35">方法要落得住，靠的是底下这层工程</text>
+  <text x="44" y="596" font-size="13.5" fill="#4a544c">scripts/ 9 个脚本 · Python 标准库 + Node 22 · 零第三方依赖</text>
+  <text x="44" y="622" font-size="13.5" fill="#4a544c">tests/ 5,624 行 · 8 个文件 · CI 覆盖 Linux / Windows / GBK / 暗色 / Edge</text>
+  <text x="44" y="648" font-size="13.5" fill="#4a544c">assets/ 对比页 39KB 单文件 · CSP 断掉网络，断网也能打开</text>
+  <text x="44" y="674" font-size="13" fill="#8a8f86">截图脚本自带可读性检查：对比度、字号、行高、首屏是否还在透明态</text>
+</svg>
