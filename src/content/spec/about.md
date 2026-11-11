@@ -2,8 +2,6 @@
 title: 关于我
 description: 做自动化 / RPA，长期和影刀（ShadowBot）打交道，也在推进 WorkBuddy 与 RPA Studio 的 MCP 集成。
 ---
-# 关于我
-
 做自动化 / RPA，长期和影刀（ShadowBot）打交道，也在推进 WorkBuddy 与 RPA Studio 的 MCP 集成。
 
 喜欢把事拆清楚、留下可复用的沉淀——这个站就是干这个用的。
