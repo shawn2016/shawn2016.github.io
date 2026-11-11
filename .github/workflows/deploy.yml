@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 # Pages 部署需要的权限
@@ -36,9 +36,29 @@ jobs:
           
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-      
+
+      # L2 加密页：从仓库 Secret 注入真实密码，仓库中只存占位符
+      - name: Inject note password
+        env:
+          NOTE_PASSWORD: ${{ secrets.NOTE_PASSWORD }}
+        run: |
+          if [ -n "$NOTE_PASSWORD" ]; then
+            python3 inject_password.py
+          else
+            echo "NOTE_PASSWORD 未设置，加密页将使用占位符密码构建"
+          fi
+
       - name: Build site
         run: pnpm run build
+
+      - name: Restore password placeholder
+        if: always()
+        env:
+          NOTE_PASSWORD: ${{ secrets.NOTE_PASSWORD }}
+        run: |
+          if [ -n "$NOTE_PASSWORD" ]; then
+            python3 inject_password.py --restore
+          fi
 
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
