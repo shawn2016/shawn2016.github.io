@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+import CollectionGrid from "@/components/pages/CollectionGrid.astro";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@/utils/content-utils";
+import "@/styles/pages/common.css";
+
+const title = "Skills";
+const description = "可复用的方法、工具与流程：写作框架、自动化套路、效率配置";
+
+// 计数：用于页头统计
+const allPosts = await getSortedPosts();
+const count = allPosts.filter(
+	(entry) => entry.id === "skills/index" || entry.id.startsWith("skills/"),
+).length;
+---
+
+<MainGridLayout title={title} description={description}>
+	<section class="page-shell">
+		<header class="card-base page-header">
+			<div class="page-heading">
+				<div class="page-icon" aria-hidden="true">
+					<Icon name="material-symbols:tools-wrench" />
+				</div>
+				<div>
+					<h2>{title}</h2>
+					{description && <p>{description}</p>}
+				</div>
+			</div>
+			<div class="page-count" aria-label={title}>
+				<Icon name="material-symbols:tools-wrench" />
+				<strong>{count}</strong>
+				<span>{title}</span>
+			</div>
+		</header>
+
+		<div class="page-body">
+			<CollectionGrid
+				section="skills"
+				emptyHint="还没有沉淀技能，先把踩过的坑写成可复用的流程"
+			/>
+		</div>
+	</section>
+</MainGridLayout>

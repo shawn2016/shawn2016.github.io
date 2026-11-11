@@ -1,0 +1,77 @@
+---
+/**
+ * 通用「集合网格页」组件：把某个目录下的文章按自适应网格渲染
+ * 用于 skills / projects 这类需要快速速览、跳转的集合，与首页的列表布局区分开
+ *
+ * 说明：容器同时挂 post-list-container / grid-mode，复用主题内置的网格卡片样式；
+ * 网格列数由 --post-card-min-width 控制（取自 siteConfig.postListLayout.grid.columnWidth）
+ */
+import type { CollectionEntry } from "astro:content";
+import { getPostUrlBySlug } from "@utils/url-utils";
+import PostCard from "@/components/layout/PostCard.astro";
+import { siteConfig } from "@/config";
+import { getSortedPosts } from "@/utils/content-utils";
+
+interface Props {
+	/** 内容目录前缀，如 "skills" / "projects" */
+	section: string;
+	/** 空态提示 */
+	emptyHint?: string;
+}
+
+const { section, emptyHint = "这个集合还没有内容" } = Astro.props;
+
+const columnWidth = siteConfig.postListLayout.grid.columnWidth || 320;
+const allPosts = await getSortedPosts();
+const entries = allPosts.filter(
+	(entry: CollectionEntry<"posts">) =>
+		entry.id === `${section}/index` || entry.id.startsWith(`${section}/`),
+) as CollectionEntry<"posts">[];
+
+let delay = 0;
+const interval = 50;
+---
+
+{
+  entries.length === 0 ? (
+    <div class="card-base p-8 text-center text-50">{emptyHint}</div>
+  ) : (
+    <div
+      class="post-list-container grid-mode collection-grid mb-4"
+      style={`--post-card-min-width: ${columnWidth}px;`}
+    >
+      {entries.map((entry, index) => (
+        <PostCard
+          entry={entry}
+          title={entry.data.title}
+          tags={entry.data.tags}
+          category={entry.data.category}
+          published={entry.data.published}
+          updated={entry.data.updated}
+          url={getPostUrlBySlug(entry.id)}
+          image={entry.data.image}
+          description={entry.data.description}
+          draft={entry.data.draft}
+          pinned={entry.data.pinned}
+          password={!!entry.data.password}
+          loading={index < 2 ? "eager" : "lazy"}
+          class:list="onload-animation post-card-item"
+          style={`animation-delay: calc(var(--content-delay) + ${delay++ * interval}ms);`}
+        />
+      ))}
+    </div>
+  )
+}
+
+<style>
+  /* 自适应网格：列数随容器宽度自动计算，最小列宽由 --post-card-min-width 指定 */
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--post-card-min-width, 320px), 1fr)
+    );
+    gap: 1rem;
+    align-items: start;
+  }
+</style>

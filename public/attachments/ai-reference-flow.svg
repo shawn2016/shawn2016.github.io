@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" font-family="-apple-system, 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif">
+  <rect width="1200" height="380" fill="#f7f8f5"/>
+  <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e8ebe4" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="380" fill="url(#grid2)"/>
+
+  <!-- 步骤1：挑截图 -->
+  <g>
+    <rect x="60" y="70" width="280" height="240" rx="16" fill="#ffffff" stroke="#cfdcd4" stroke-width="1.5"/>
+    <text x="90" y="112" font-size="18" font-weight="700" fill="#2f6b5a">① 挑参考</text>
+    <text x="90" y="136" font-size="13" fill="#7c8a80">同类真实解法 2~3 张</text>
+    <!-- 迷你截图卡片 -->
+    <rect x="90" y="156" width="64" height="112" rx="8" fill="#eef4f0" stroke="#9dbfab"/>
+    <rect x="98" y="168" width="48" height="8" rx="4" fill="#40916c" opacity="0.7"/>
+    <rect x="98" y="184" width="36" height="6" rx="3" fill="#b7cdc0"/>
+    <rect x="98" y="198" width="42" height="6" rx="3" fill="#b7cdc0"/>
+    <rect x="98" y="224" width="48" height="18" rx="6" fill="#2f6b5a"/>
+    <rect x="172" y="156" width="64" height="112" rx="8" fill="#f4f0e8" stroke="#cfc4ae"/>
+    <rect x="180" y="168" width="48" height="8" rx="4" fill="#8a7d5e" opacity="0.7"/>
+    <rect x="180" y="184" width="36" height="6" rx="3" fill="#cfc6b2"/>
+    <rect x="180" y="198" width="42" height="6" rx="3" fill="#cfc6b2"/>
+    <rect x="180" y="224" width="48" height="18" rx="6" fill="#6b7f5e"/>
+  </g>
+
+  <!-- 箭头1 -->
+  <line x1="352" y1="190" x2="416" y2="190" stroke="#2f6b5a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 424 190 l -13 -8 v 16 z" fill="#2f6b5a"/>
+
+  <!-- 步骤2：给 AI 上下文 -->
+  <g>
+    <rect x="436" y="70" width="300" height="240" rx="16" fill="#ffffff" stroke="#cfdcd4" stroke-width="1.5"/>
+    <text x="466" y="112" font-size="18" font-weight="700" fill="#2f6b5a">② 给 AI 当参照</text>
+    <text x="466" y="136" font-size="13" fill="#7c8a80">图比形容词有效</text>
+    <!-- 对话气泡：错误用法 -->
+    <rect x="466" y="156" width="240" height="44" rx="10" fill="#f0efec" stroke="#dcdcd6"/>
+    <text x="480" y="183" font-size="14" fill="#8a8f86">“做一个现代简约的会员页”</text>
+    <!-- 对话气泡：正确用法 -->
+    <rect x="466" y="212" width="240" height="72" rx="10" fill="#eaf2ed" stroke="#9dbfab"/>
+    <text x="480" y="239" font-size="14" fill="#2f6b5a" font-weight="600">“照这三张的真实布局，</text>
+    <text x="480" y="262" font-size="14" fill="#2f6b5a" font-weight="600">做一版我们的会员页”</text>
+  </g>
+
+  <!-- 箭头2 -->
+  <line x1="748" y1="190" x2="812" y2="190" stroke="#2f6b5a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 820 190 l -13 -8 v 16 z" fill="#2f6b5a"/>
+
+  <!-- 步骤3：产出与修正 -->
+  <g>
+    <rect x="832" y="70" width="308" height="240" rx="16" fill="#ffffff" stroke="#cfdcd4" stroke-width="1.5"/>
+    <text x="862" y="112" font-size="18" font-weight="700" fill="#2f6b5a">③ 对照修正</text>
+    <text x="862" y="136" font-size="13" fill="#7c8a80">AI 抄结构，你守决策</text>
+    <!-- 产出界面示意 -->
+    <rect x="862" y="156" width="248" height="130" rx="10" fill="#fbfbf9" stroke="#d8dcd2"/>
+    <rect x="874" y="168" width="60" height="10" rx="5" fill="#40916c"/>
+    <rect x="874" y="190" width="100" height="8" rx="4" fill="#c9d2cb"/>
+    <rect x="874" y="206" width="80" height="8" rx="4" fill="#c9d2cb"/>
+    <rect x="990" y="188" width="108" height="30" rx="8" fill="#2f6b5a"/>
+    <rect x="1002" y="199" width="60" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+    <rect x="990" y="228" width="108" height="30" rx="8" fill="#e8f0ea" stroke="#9dbfab"/>
+    <rect x="1002" y="239" width="60" height="8" rx="4" fill="#5f7268"/>
+    <text x="986" y="320" font-size="13" fill="#5f7268">间距、层级、密度有据可依</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="600" y="356" font-size="15" fill="#5f7268" text-anchor="middle">真实截图就是 few-shot：给 AI 看过的东西，决定了它做出来的东西</text>
+</svg>
