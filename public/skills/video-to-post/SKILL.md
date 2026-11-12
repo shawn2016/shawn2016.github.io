@@ -15,7 +15,7 @@ description: 把 B 站视频链接变成一篇有判断主线的文章，并发�
 | 转录脚本（本地 Whisper） | `https://shawn2016.github.io/skills/video-to-post/transcribe.py` |
 | 首个案例：两路转录与核验表 | `https://shawn2016.github.io/skills/video-to-post/transcript.md` |
 | 六次验收流程图 | `https://shawn2016.github.io/attachments/video-to-post-flow.png` |
-| 写作框架（六维检查 + 判据库） | `https://shawn2016.github.io/skills/` 栏目中的《采集类文章写作框架》 |
+| 写作框架（六维检查 + 判据库） | `https://shawn2016.github.io/posts/skills/采集类文章写作框架/` |
 | 配套文章 | `https://shawn2016.github.io/posts/skills/video-to-post/` |
 | 目标仓库 | `https://github.com/shawn2016/shawn2016.github.io` |
 
@@ -87,7 +87,7 @@ image: /attachments/xxx.jpg
 
 优先用 GitHub Git Data API（`POST /git/blobs` → `POST /git/trees` 带 `base_tree` → `POST /git/commits` → `PATCH /git/refs/heads/main`）。浅克隆在本机容易被内存限制杀掉。更新分支引用必须用复数 `refs/heads/main`，查 commit 要保留完整 40 位 sha。
 
-发布后逐项验证 200：文章页、`/skills/` 栏目、`SKILL.md`、证据稿、附件图片、`/llms.txt`（新文章应排第一）、Pages workflow 状态。
+发布后逐项验证 200：文章页、`/skills/` 栏目、`SKILL.md`、证据稿、附件图片、`/llms.txt`，并确认新文章出现在 Recent Posts 里。同日已有多篇时排序不保证第一，收录才是硬指标。Pages workflow 必须为 success。
 
 ## 硬性规则
 
