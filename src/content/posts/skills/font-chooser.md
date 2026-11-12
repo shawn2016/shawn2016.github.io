@@ -76,7 +76,7 @@ image: /attachments/font-compare-4.png
 | 230 款结构化数据 | `https://shawn2016.github.io/skills/font-chooser/font_catalog.json` |
 | 图册索引与逐页清单 | `https://shawn2016.github.io/skills/font-chooser/index.md` |
 | 样张 01–15 | `https://shawn2016.github.io/attachments/font-atlas-01.png` … `-15.png` |
-| 交互预览（任意文字） | 本地 `font_gallery.html`，需联网 |
+| 交互预览（输入任意文字） | `https://shawn2016.github.io/skills/font-chooser/gallery.html` |
 
 给模型的指令可以写成一句话：读 `index.md` 的风格速查定位页码，打开对应 PNG，挑一款，报出「第 N 页 #M」和 id，再按 `SKILL.md` 的模板生成 link。
 
@@ -96,7 +96,7 @@ image: /attachments/font-compare-4.png
 诚实记一下这套东西不覆盖什么。
 
 - **AI 直接生图**：字形由模型画出来，不由 CSS 控制，图册只能当风格提示词写进 prompt。
-- **静态样张只覆盖固定那二十来个字**：换文案要重新生成，或者用交互页（走远程 `unicode-range` 分片，支持任意文字）。
+- **静态样张只覆盖固定那二十来个字**：换文案要重新生成，或者用[交互预览页](https://shawn2016.github.io/skills/font-chooser/gallery.html)（走远程 `unicode-range` 分片，支持任意文字）。
 - **230 款里只有 130 款含中文字形**：拿 Anton 排中文会静默 fallback（浏览器找不到字形时退回系统字体），等于没选。
 - **清单之外没有**：阿里巴巴普惠体查不到，得自备字体文件本地裁子集。
 - **数据本身不干净**：`useCases` 有批量打标签痕迹，场景列只能当参考，判断以风格描述和图片为准。

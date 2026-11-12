@@ -222,6 +222,7 @@
 - AI 指令：`https://shawn2016.github.io/skills/font-chooser/SKILL.md`
 - 结构化数据：`https://shawn2016.github.io/skills/font-chooser/font_catalog.json`
 - 四款对照图：`https://shawn2016.github.io/attachments/font-compare-4.png`
+- 交互预览页（输入任意文字）：`https://shawn2016.github.io/skills/font-chooser/gallery.html`
 - 文章：`https://shawn2016.github.io/posts/skills/font-chooser/`
 - 站点 AI 索引：`https://shawn2016.github.io/llms.txt`
 

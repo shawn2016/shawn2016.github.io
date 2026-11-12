@@ -16,6 +16,7 @@ description: 为设计稿、海报、网页排版选择并接入开源中文字�
 | 样张图册索引（含风格速查、逐页清单） | `https://shawn2016.github.io/skills/font-chooser/index.md` |
 | 样张图片 01–15 | `https://shawn2016.github.io/attachments/font-atlas-01.png` … `font-atlas-15.png` |
 | 四款对照图（黑体/宋体/倾斜/圆体） | `https://shawn2016.github.io/attachments/font-compare-4.png` |
+| 交互预览页（输入任意文字） | `https://shawn2016.github.io/skills/font-chooser/gallery.html` |
 | 配套文章 | `https://shawn2016.github.io/posts/skills/font-chooser/` |
 
 `font_catalog.json` 的每条记录含：`id`、`family`、`familyEn`、`aliases`、`style`、`styleCn`、`summary`、`useCases`、`avoid`、`tags`、`license`、`note`、`cssFamily`、`supportsChinese`、`srcMB`、`weights[{weight, css, link, slices}]`。其中 `weights[].css` 是现成的绝对 CSS 地址，`weights[].link` 是可直接粘贴的 `<link>` 标签。
