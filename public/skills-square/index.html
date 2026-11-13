@@ -4,339 +4,326 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skills 广场 - Shawn 的数字花园</title>
-<meta name="description" content="Shawn 的自用 AI 技能收藏：给人看用途和用法，给 AI 看可下载的 SKILL.md，一键复制安装指令。">
+<meta name="description" content="Shawn 的自用 AI 技能目录：人看用途和装法，AI 取 SKILL.md 原文。">
 <style>
 :root {
-  --bg: #f5f6f8;
-  --card: #ffffff;
-  --text: #1c1c1e;
-  --muted: #86888c;
-  --line: #ececf0;
-  --accent: #3957ff;
-  --accent-2: #af52de;
-  --accent-soft: #f0f3ff;
-  --accent-line: #d9e0ff;
-  --grad: linear-gradient(135deg, #3957ff 0%, #7a4dff 60%, #af52de 100%);
-  --glass-shadow: 0 8px 32px rgba(16, 20, 28, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --glass-shadow-hover: 0 16px 48px rgba(16, 20, 28, 0.13), 0 2px 4px rgba(0, 0, 0, 0.07);
-  --mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+  --paper: #f2f2ed;
+  --card: #fbfbf8;
+  --ink: #191a17;
+  --muted: #6e6f67;
+  --rule: #d6d7ce;
+  --rule-strong: #b9bbb0;
+  --c-disipline: #1d5c4a;
+  --c-writing: #2e4374;
+  --c-product: #6e3b52;
+  --c-system: #8a5a28;
+  --mono: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, monospace;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #101216;
-    --card: #1c1f26;
-    --text: #e8eaed;
-    --muted: #9aa1ab;
-    --line: #2c3038;
-    --accent: #6b83ff;
-    --accent-2: #c077ff;
-    --accent-soft: #22273a;
-    --accent-line: #353d5c;
-    --grad: linear-gradient(135deg, #6b83ff 0%, #9a6bff 60%, #c077ff 100%);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.4);
-    --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.4);
+    --paper: #131411;
+    --card: #191a16;
+    --ink: #e9e8e0;
+    --muted: #90918a;
+    --rule: #2e302a;
+    --rule-strong: #45473f;
+    --c-disipline: #7fbfa8;
+    --c-writing: #93a8d6;
+    --c-product: #c79cb0;
+    --c-system: #c9a46a;
   }
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 body {
-  font-family: Outfit, -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  font-feature-settings: "tnum";
 }
-body::before {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(560px 360px at 12% -6%, rgba(57, 87, 255, 0.09), transparent 65%),
-    radial-gradient(520px 340px at 88% -4%, rgba(175, 82, 222, 0.08), transparent 65%),
-    radial-gradient(640px 420px at 50% 110%, rgba(0, 122, 255, 0.05), transparent 70%);
-}
-@media (prefers-color-scheme: dark) {
-  body::before {
-    background:
-      radial-gradient(560px 360px at 12% -6%, rgba(107, 131, 255, 0.10), transparent 65%),
-      radial-gradient(520px 340px at 88% -4%, rgba(192, 119, 255, 0.08), transparent 65%),
-      radial-gradient(640px 420px at 50% 110%, rgba(107, 131, 255, 0.05), transparent 70%);
-  }
-}
-.wrap { max-width: 1100px; margin: 0 auto; padding: 52px 24px 80px; }
-a { color: var(--accent); text-decoration: none; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.wrap { max-width: 1024px; margin: 0 auto; padding: 40px 28px 88px; }
 
-.hero h1 {
-  font-size: 44px; font-weight: 800; letter-spacing: -0.8px; line-height: 1.15;
-  background: var(--grad); -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-  display: inline-block;
+/* 书眉 */
+.masthead { border-bottom: 1px solid var(--rule-strong); padding-bottom: 26px; }
+.mast-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 12.5px; color: var(--muted); letter-spacing: .01em;
 }
-.hero p.sub { color: var(--muted); margin-top: 10px; font-size: 15px; }
-.hero .back { font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; }
-.hero .back:hover { color: var(--accent); }
-.rainbow {
-  margin-top: 22px; height: 3px; border-radius: 999px; max-width: 260px;
-  background: linear-gradient(90deg, #ff4242, #ffa142, #28bd28, #42d0ff, #6666ff, #ff42ff);
+.mast-row a { color: var(--muted); }
+.mast-row a:hover { color: var(--ink); }
+h1 {
+  font-size: clamp(38px, 6vw, 54px); font-weight: 800; line-height: 1.08;
+  letter-spacing: -0.02em; margin-top: 26px;
 }
+.lede { margin-top: 14px; max-width: 47ch; color: var(--muted); font-size: 14.5px; }
 
-.stats { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-.stat {
-  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-  padding: 5px 16px; font-size: 13px; color: var(--muted); box-shadow: var(--glass-shadow);
+/* 检索 */
+.search {
+  display: flex; align-items: baseline; gap: 16px;
+  border-bottom: 2px solid var(--ink); padding: 26px 0 10px;
 }
-.stat b { color: var(--text); font-weight: 700; }
-
-.search-box {
-  margin-top: 26px; display: flex; align-items: center; gap: 10px;
-  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
-  padding: 13px 18px; box-shadow: var(--glass-shadow); transition: border-color 0.15s, box-shadow 0.15s;
+.search input {
+  flex: 1; min-width: 0; border: none; outline: none; background: none;
+  font-family: var(--sans); font-size: 19px; font-weight: 500; color: var(--ink);
 }
-.search-box:focus-within { border-color: var(--accent); box-shadow: var(--glass-shadow-hover); }
-.search-box svg { flex: none; width: 18px; height: 18px; stroke: var(--muted); }
-.search-box input {
-  flex: 1; border: none; outline: none; background: transparent;
-  font-size: 15px; color: var(--text); font-family: inherit;
+.search input::placeholder { color: var(--muted); font-weight: 400; }
+.search input:focus-visible { outline: none; }
+.search-meta {
+  flex: none; display: flex; align-items: baseline; gap: 12px;
+  font-size: 12.5px; color: var(--muted); font-family: var(--mono);
 }
-.search-box input::placeholder { color: var(--muted); }
-
-.chips { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-.chips .filter-icon { color: var(--muted); font-size: 14px; }
-.chip {
-  border: 1px solid var(--line); background: var(--card); color: var(--text);
-  padding: 6px 16px; border-radius: 999px; font-size: 13.5px; cursor: pointer;
-  transition: all 0.15s; font-family: inherit; box-shadow: var(--glass-shadow);
-}
-.chip:hover { border-color: var(--accent); color: var(--accent); }
-.chip.active {
-  background: var(--grad); border-color: transparent; color: #fff; font-weight: 600;
+kbd {
+  font-family: var(--mono); font-size: 11px; padding: 1px 5px;
+  border: 1px solid var(--rule-strong); border-radius: 2px; color: var(--muted);
 }
 
-.count-line { margin-top: 16px; color: var(--muted); font-size: 13px; }
+/* 目录筛选：纯文本，带计数 */
+.filters { display: flex; flex-wrap: wrap; gap: 22px; padding: 14px 0 0; }
+.filter {
+  background: none; border: none; padding: 0 0 3px; cursor: pointer;
+  font-family: var(--sans); font-size: 13.5px; color: var(--muted);
+  border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.filter:hover { color: var(--ink); }
+.filter.active { color: var(--ink); font-weight: 600; border-bottom-color: var(--ink); }
+.filter .n { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-left: 4px; }
 
-.grid {
-  margin-top: 20px;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px;
+/* 条目：共享规则线，不做浮动卡片 */
+.entries {
+  margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--rule); border-left: 1px solid var(--rule);
 }
-.card {
-  position: relative; overflow: hidden;
-  background: var(--card); border-radius: 18px; padding: 22px;
-  box-shadow: var(--glass-shadow); border: 1px solid var(--line);
-  display: flex; flex-direction: column; gap: 12px;
-  transition: box-shadow 0.25s, transform 0.25s;
+.entry {
+  border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 24px 26px 22px; background: var(--card);
+  display: flex; flex-direction: column;
+  animation: rise .4s cubic-bezier(.2,.7,.3,1) both;
+  animation-delay: calc(var(--i, 0) * 28ms);
 }
-.card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--grad); opacity: 0; transition: opacity 0.25s;
+@keyframes rise { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .entry { animation: none; }
 }
-.card:hover { box-shadow: var(--glass-shadow-hover); transform: translateY(-3px); }
-.card:hover::before { opacity: 1; }
-.card .head { display: flex; gap: 13px; align-items: flex-start; }
-.tile {
-  flex: none; width: 46px; height: 46px; border-radius: 13px;
-  display: flex; align-items: center; justify-content: center; font-size: 22px;
-  color: #fff; box-shadow: 0 4px 14px rgba(57, 87, 255, 0.25);
+.entry:hover { background: var(--paper); }
+.entry.featured { grid-column: span 2; }
+.entry-top {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
 }
-.card h3 { font-size: 16.5px; font-weight: 700; line-height: 1.35; }
-.card .slug { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.card .desc {
-  font-size: 13.5px; color: var(--muted); flex: 1;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+.inv {
+  font-family: var(--mono); font-size: 13px; color: var(--cat, var(--ink));
+  border-bottom: 1px solid transparent; transition: border-color .15s;
 }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag {
-  font-size: 11.5px; padding: 3px 10px; border-radius: 999px;
-  background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line);
-}
-.meta-line { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12.5px; }
-.meta-line .cat { font-weight: 600; }
-.actions { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; }
-.btn {
-  border: none; border-radius: 11px; padding: 9.5px 0; font-size: 13.5px; font-weight: 600;
-  cursor: pointer; font-family: inherit; transition: filter 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
-}
-.btn.primary { background: var(--grad); color: #fff; }
-.btn.primary:hover { filter: brightness(1.08); }
-.btn.primary.copied { filter: none; background: linear-gradient(135deg, #28bd28, #16a34a); }
-.btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
-.btn.ghost:hover { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+.entry:hover .inv { border-bottom-color: var(--cat, var(--ink)); }
+.catname { font-size: 12px; color: var(--muted); flex: none; }
+h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; margin-top: 8px; line-height: 1.35; }
+.entry.featured h3 { font-size: 26px; }
+.purpose { margin-top: 8px; color: var(--muted); font-size: 13.8px; max-width: 62ch; }
+.entry.featured .purpose { font-size: 14.5px; }
 
-.empty { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; display: none; }
+.entry-foot {
+  margin-top: auto; padding-top: 18px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.entry-meta { font-family: var(--mono); font-size: 11.5px; color: var(--muted); display: flex; gap: 14px; }
+.entry-actions { display: flex; align-items: center; gap: 16px; }
+.btn-ink {
+  background: var(--ink); color: var(--paper); border: 1px solid var(--ink);
+  font-family: var(--sans); font-size: 12.8px; font-weight: 600; letter-spacing: .01em;
+  padding: 7px 14px; border-radius: 2px; cursor: pointer; transition: opacity .15s;
+}
+.btn-ink:hover { opacity: .82; }
+.btn-ink.copied { background: var(--c-disipline); border-color: var(--c-disipline); color: var(--paper); }
+.btn-text {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-family: var(--sans); font-size: 12.8px; color: var(--muted);
+  border-bottom: 1px solid var(--rule-strong);
+}
+.btn-text:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
-/* 模态框 */
-.modal-mask {
-  display: none; position: fixed; inset: 0; background: rgba(12, 14, 18, 0.5);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  z-index: 50; padding: 24px; overflow-y: auto;
-}
-.modal-mask.open { display: flex; align-items: flex-start; justify-content: center; }
-.modal {
-  background: var(--card); border-radius: 20px; max-width: 640px; width: 100%;
-  margin: auto; padding: 30px; box-shadow: var(--glass-shadow-hover);
-  border: 1px solid var(--line);
-}
-.modal h2 { font-size: 20px; display: flex; align-items: center; gap: 12px; }
-.modal .slug { font-family: var(--mono); font-size: 13px; color: var(--muted); }
-.modal .detail { margin: 18px 0; display: flex; flex-direction: column; gap: 10px; }
-.modal .detail p { font-size: 14px; color: var(--text); }
-.modal .detail p b { color: var(--accent); }
-.modal h4 { font-size: 12.5px; color: var(--muted); margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.6px; }
-.filelist { font-family: var(--mono); font-size: 12px; background: var(--bg); border-radius: 12px; padding: 12px 14px; }
-.filelist div { padding: 2px 0; word-break: break-all; }
-.filelist a { color: var(--accent); }
-.modal .close-bar { display: flex; gap: 10px; margin-top: 20px; }
-.modal .close-bar .btn { padding: 10px 0; }
+.files { margin-top: 14px; font-family: var(--mono); font-size: 11.8px; color: var(--muted); line-height: 1.9; }
+.files span { display: inline-block; margin-right: 14px; }
+.files .d { color: var(--cat, var(--ink)); font-style: normal; }
 
-/* AI 入口 */
-.ai-section {
-  margin-top: 56px; background: var(--card); border: 1px solid var(--line);
-  border-radius: 18px; padding: 26px 28px; box-shadow: var(--glass-shadow);
-  position: relative; overflow: hidden;
-}
-.ai-section::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--grad);
-}
-.ai-section h2 { font-size: 17px; margin-bottom: 10px; }
-.ai-section p { font-size: 13.5px; color: var(--muted); }
-.ai-section code {
-  font-family: var(--mono); font-size: 12.5px;
-  background: var(--accent-soft); padding: 2px 6px; border-radius: 5px; color: var(--accent);
-}
-.ai-section .prompt-box {
-  margin-top: 14px; background: var(--bg); border-radius: 12px; padding: 14px 16px;
-  font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap;
-  color: var(--text);
-}
-.ai-section .copy-row { margin-top: 12px; }
-.ai-section .btn.primary { padding: 9px 22px; }
+.empty { display: none; padding: 46px 0; color: var(--muted); font-size: 13.5px; }
 
-footer { margin-top: 44px; text-align: center; color: var(--muted); font-size: 12.5px; }
+/* 附录 */
+.appendix { margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 22px; }
+.appendix h2 { font-size: 15px; font-weight: 700; }
+.appendix p { margin-top: 10px; max-width: 68ch; color: var(--muted); font-size: 13.5px; }
+.appendix code { font-family: var(--mono); font-size: 12.3px; color: var(--ink); border-bottom: 1px solid var(--rule); }
+.cmd-box {
+  margin-top: 16px; border: 1px solid var(--rule); background: var(--card);
+  padding: 14px 16px; font-family: var(--mono); font-size: 12.3px; color: var(--ink);
+  white-space: pre-wrap; word-break: break-all; line-height: 1.85;
+}
+.appendix .btn-ink { margin-top: 14px; }
+
+footer {
+  margin-top: 46px; padding-top: 16px; border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  font-size: 12px; color: var(--muted);
+}
+
+/* 详情：一张规格页 */
+.mask {
+  display: none; position: fixed; inset: 0; background: rgba(20, 21, 18, .62);
+  z-index: 50; overflow-y: auto; padding: 40px 20px;
+}
+.mask.open { display: block; }
+.sheet {
+  max-width: 660px; margin: 0 auto; background: var(--card);
+  border: 1px solid var(--rule-strong); border-top: 3px solid var(--cat, var(--ink));
+  padding: 34px 36px 30px; box-shadow: 0 24px 60px rgba(0, 0, 0, .18);
+}
+.sheet .inv { font-size: 13px; }
+.sheet h2 { font-size: 25px; font-weight: 800; letter-spacing: -0.015em; margin-top: 6px; line-height: 1.25; }
+.sheet .meta { margin-top: 6px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.sheet ul { margin: 22px 0 0; padding: 0; list-style: none; }
+.sheet li { padding: 9px 0; border-top: 1px solid var(--rule); font-size: 13.8px; color: var(--ink); }
+.sheet li b { font-weight: 700; }
+.sheet h4 { margin: 26px 0 0; font-size: 12.5px; font-weight: 700; color: var(--muted); }
+.filelink { font-family: var(--mono); font-size: 12px; padding: 5px 0; border-bottom: 1px dotted var(--rule); }
+.filelink a { color: var(--c-writing); }
+.sheet .close-row { margin-top: 24px; display: flex; gap: 14px; align-items: center; }
+
+/* 提示 */
 .toast {
-  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px);
-  background: var(--text); color: var(--bg); font-size: 13.5px; padding: 9px 20px;
-  border-radius: 999px; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 99;
+  position: fixed; left: 28px; bottom: 26px; background: var(--ink); color: var(--paper);
+  font-size: 12.8px; padding: 9px 14px; border-radius: 2px;
+  opacity: 0; transform: translateY(6px); transition: opacity .18s, transform .18s; z-index: 99;
 }
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.show { opacity: 1; transform: translateY(0); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .wrap { padding: 28px 18px 64px; }
+  .entries { grid-template-columns: 1fr; }
+  .entry.featured { grid-column: span 1; }
+  .entry { padding: 20px 18px; }
+  .entry-foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .sheet { padding: 26px 22px; }
+  .search { flex-wrap: wrap; gap: 8px; }
+  .search-meta { width: 100%; justify-content: flex-end; }
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="hero">
-    <a class="back" href="/">← 返回 Shawn 的数字花园</a>
+
+  <header class="masthead">
+    <div class="mast-row">
+      <a href="/">Shawn 的数字花园</a>
+      <span id="mast-meta">技能目录</span>
+    </div>
     <h1>Skills 广场</h1>
-    <p class="sub">我的自用 AI 技能：给人看「是干嘛的、怎么用」，给 AI 看「下载哪里、怎么装」——一键复制安装指令，丢给你的 AI 就行</p>
-    <div class="rainbow"></div>
-    <div class="stats" id="stats"></div>
+    <p class="lede">自用 AI 技能的目录。人看用途和怎么装，AI 直接取 SKILL.md 原文。</p>
+  </header>
+
+  <div class="search">
+    <input id="search" type="search" placeholder="搜技能、用途或标签" autocomplete="off" aria-label="搜索技能">
+    <span class="search-meta"><kbd>/</kbd><span id="count"></span></span>
   </div>
 
-  <div class="search-box">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    <input id="search" type="search" placeholder="搜索技能名、用途、标签…" autocomplete="off">
-  </div>
+  <nav class="filters" id="filters" aria-label="按分类筛选"></nav>
 
-  <div class="chips" id="chips">
-    <span class="filter-icon">☰</span>
-  </div>
-  <div class="count-line" id="count-line"></div>
+  <main class="entries" id="entries"></main>
+  <div class="empty" id="empty">没有匹配的条目。清空搜索，或换个分类。</div>
 
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty">没有匹配的技能，换个关键词试试</div>
+  <section class="appendix">
+    <h2>附录：给 AI 的取件说明</h2>
+    <p>读 <code>https://shawn2016.github.io/skills/index.json</code> 拿全部条目与文件清单；每个 <code>SKILL.md</code> 是纯文本原文，按 <code>install_to</code> 写盘即装好，之后用 <code>/&lt;slug&gt;</code> 调用。下面的指令可直接交给你的 AI。</p>
+    <pre class="cmd-box" id="ai-cmd"></pre>
+    <button class="btn-ink" id="copy-ai">复制这段指令</button>
+  </section>
 
-  <div class="ai-section">
-    <h2>🤖 给 AI / Agent 的入口</h2>
-    <p>如果你是 AI：读取 <code>https://shawn2016.github.io/skills/index.json</code> 即可获得全部技能的元数据与文件清单；每个 SKILL.md 都是纯文本原文，按 <code>install_to</code> 与 <code>file_urls</code> 落盘即可安装，装完用 <code>/&lt;slug&gt;</code> 调用。</p>
-    <div class="prompt-box" id="ai-prompt"></div>
-    <div class="copy-row"><button class="btn primary" id="copy-ai">📋 复制通用安装指令</button></div>
-  </div>
-
-  <footer>Shawn 的数字花园 · <a href="https://github.com/shawn2016">GitHub</a> · 数据源 <a href="/skills/index.json">skills/index.json</a></footer>
+  <footer>
+    <span>Shawn 的数字花园</span>
+    <span>数据源 <a href="/skills/index.json">/skills/index.json</a> · <a href="https://github.com/shawn2016">GitHub</a></span>
+  </footer>
 </div>
 
-<div class="modal-mask" id="mask">
-  <div class="modal" id="modal"></div>
+<div class="mask" id="mask">
+  <div class="sheet" id="sheet"></div>
 </div>
 <div class="toast" id="toast">已复制</div>
 
 <script>
 const SITE = "https://shawn2016.github.io";
-const TILE_GRADS = [
-  "linear-gradient(135deg, #3957ff, #6a8bff)",
-  "linear-gradient(135deg, #af52de, #7a4dff)",
-  "linear-gradient(135deg, #ff9500, #ff6b00)",
-  "linear-gradient(135deg, #16a34a, #28bd28)",
-  "linear-gradient(135deg, #007aff, #3957ff)",
-  "linear-gradient(135deg, #f64041, #ff7a45)",
-  "linear-gradient(135deg, #42d0ff, #007aff)",
-];
+const INK = {
+  "任务纪律": "var(--c-disipline)",
+  "写作发布": "var(--c-writing)",
+  "产品设计": "var(--c-product)",
+  "系统效率": "var(--c-system)"
+};
 let DATA = null, activeCat = "全部", keyword = "";
 
 const $ = (s) => document.querySelector(s);
 
-function tileGrad(sk) {
-  const i = DATA.skills.indexOf(sk) % TILE_GRADS.length;
-  return TILE_GRADS[i];
-}
-
 function installPrompt(sk) {
   const lines = sk.file_urls.map((u, i) => {
     const rel = u.replace(SITE + "/skills/" + sk.slug + "/", "");
-    return "   " + (i + 1) + ". " + u + "\n      → ~/.workbuddy/skills/" + sk.slug + "/" + rel;
+    return "   " + (i + 1) + ". " + u + "\n      写到 ~/.workbuddy/skills/" + sk.slug + "/" + rel;
   }).join("\n");
   return "请帮我把这个 Skill 安装到我的 WorkBuddy：\n"
-    + "1. 逐个获取下列文件的原文（纯文本），按「→」后面的路径写入（先创建目录）：\n"
+    + "1. 逐个获取下列文件的原文（纯文本），按「写到」后面的路径落盘，目录不存在就先创建：\n"
     + lines + "\n"
-    + "2. 全部写完后，列出已创建的文件清单让我确认。\n"
-    + "3. 提醒我：新开一个会话，输入 / 查看技能列表里是否出现 " + sk.slug + "，之后用 /" + sk.slug + " 调用。";
+    + "2. 全部写完，列出已创建的文件清单让我确认。\n"
+    + "3. 提醒我新开会话，输入 /" + sk.slug + " 验证技能是否可用。";
 }
 
 function aiPrompt() {
-  return "请读取 " + SITE + "/skills/index.json，列出里面所有 skills 的名字（name）和一句话用途（short），等我挑选后再按 install_hint 安装对应技能。";
+  return "读取 " + SITE + "/skills/index.json，先只列 name 和 short 两列给我看，等我挑一个之后再按 install_hint 安装。";
 }
 
 function toast(msg) {
   const t = $("#toast");
   t.textContent = msg;
   t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 1800);
+  setTimeout(() => t.classList.remove("show"), 1900);
 }
 
 function copyText(text, btn, doneMsg) {
   const done = () => {
-    toast(doneMsg || "已复制，去发给你的 AI 吧");
+    toast(doneMsg || "已复制");
     if (btn) {
       const old = btn.textContent;
-      btn.textContent = "✓ 已复制";
+      btn.textContent = "已复制";
       btn.classList.add("copied");
-      setTimeout(() => { btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+      setTimeout(() => { btn.textContent = old; btn.classList.remove("copied"); }, 1500);
     }
   };
   if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(done).catch(() => fallback());
+    navigator.clipboard.writeText(text).then(done).catch(fallback);
   } else fallback();
   function fallback() {
     const ta = document.createElement("textarea");
-    ta.value = text; document.body.appendChild(ta);
-    ta.select(); document.execCommand("copy"); ta.remove(); done();
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    ta.remove(); done();
   }
 }
 
-function renderStats() {
-  const cats = new Set(DATA.skills.map((s) => s.category));
-  const files = DATA.skills.reduce((n, s) => n + s.files.length, 0);
-  $("#stats").innerHTML =
-    '<span class="stat"><b>' + DATA.count + '</b> 个技能</span>'
-    + '<span class="stat"><b>' + files + '</b> 个文件可直接下载</span>'
-    + '<span class="stat"><b>' + cats.size + '</b> 个分类</span>'
-    + '<span class="stat">更新于 <b>' + DATA.updated + '</b></span>';
+function counts() {
+  const map = { "全部": DATA.skills.length };
+  DATA.skills.forEach((s) => { map[s.category] = (map[s.category] || 0) + 1; });
+  return map;
 }
 
-function renderChips() {
-  const cats = ["全部", ...new Set(DATA.skills.map((s) => s.category))];
-  const box = $("#chips");
-  box.innerHTML = '<span class="filter-icon">☰</span>';
-  cats.forEach((c) => {
+function renderFilters() {
+  const map = counts();
+  const box = $("#filters");
+  box.innerHTML = "";
+  Object.keys(map).forEach((c) => {
     const b = document.createElement("button");
-    b.className = "chip" + (c === activeCat ? " active" : "");
-    b.textContent = c;
-    b.onclick = () => { activeCat = c; renderChips(); renderGrid(); };
+    b.className = "filter" + (c === activeCat ? " active" : "");
+    b.innerHTML = c + '<span class="n">' + map[c] + "</span>";
+    b.onclick = () => { activeCat = c; renderFilters(); renderList(); };
     box.appendChild(b);
   });
 }
@@ -344,85 +331,120 @@ function renderChips() {
 function filtered() {
   return DATA.skills.filter((s) => {
     const okCat = activeCat === "全部" || s.category === activeCat;
-    const hay = (s.name + s.slug + s.short + s.tags.join(" ")).toLowerCase();
+    const hay = (s.name + " " + s.slug + " " + s.short + " " + s.tags.join(" ")).toLowerCase();
     return okCat && (!keyword || hay.includes(keyword.toLowerCase()));
   });
 }
 
-function renderGrid() {
-  const list = filtered();
-  $("#count-line").textContent = "共 " + list.length + " 个技能" + (activeCat === "全部" ? "" : " · " + activeCat);
-  const grid = $("#grid");
-  grid.innerHTML = "";
-  $("#empty").style.display = list.length ? "none" : "block";
-  list.forEach((sk) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    const head = document.createElement("div"); head.className = "head";
-    head.innerHTML =
-      '<div class="tile" style="background:' + tileGrad(sk) + '">' + sk.emoji + "</div>"
-      + "<div><h3>" + sk.name + '</h3><div class="slug">' + sk.slug + "</div></div>";
-    const desc = document.createElement("div"); desc.className = "desc"; desc.textContent = sk.short;
-    const tags = document.createElement("div"); tags.className = "tags";
-    sk.tags.forEach((t) => { const el = document.createElement("span"); el.className = "tag"; el.textContent = "#" + t; tags.appendChild(el); });
-    const meta = document.createElement("div"); meta.className = "meta-line";
-    meta.innerHTML =
-      '<span>📥 ' + sk.files.length + " 个文件 · v" + sk.version + '</span>'
-      + '<span class="cat" style="color:' + (sk.category === "写作发布" ? "#af52de" : sk.category === "产品设计" ? "#ff9500" : sk.category === "系统效率" ? "#16a34a" : "var(--accent)") + '">' + sk.category + "</span>";
-    const actions = document.createElement("div"); actions.className = "actions";
-    const copyBtn = document.createElement("button");
-    copyBtn.className = "btn primary";
-    copyBtn.textContent = "📋 复制安装指令";
-    copyBtn.onclick = () => copyText(installPrompt(sk), copyBtn, "安装指令已复制，发给你的 AI 即可");
-    const moreBtn = document.createElement("button");
-    moreBtn.className = "btn ghost";
-    moreBtn.textContent = "查看详情";
-    moreBtn.onclick = () => openModal(sk);
-    actions.append(copyBtn, moreBtn);
-    card.append(head, desc, tags, meta, actions);
-    grid.appendChild(card);
-  });
+function entryEl(sk, i) {
+  const cat = INK[sk.category] || "var(--ink)";
+  const el = document.createElement("article");
+  el.className = "entry" + (sk.featured ? " featured" : "");
+  el.style.setProperty("--cat", cat);
+  el.style.setProperty("--i", i);
+
+  const top = document.createElement("div");
+  top.className = "entry-top";
+  const inv = document.createElement("span");
+  inv.className = "inv";
+  inv.textContent = "/" + sk.slug;
+  const catname = document.createElement("span");
+  catname.className = "catname";
+  catname.textContent = sk.category;
+  top.append(inv, catname);
+
+  const h3 = document.createElement("h3");
+  h3.textContent = sk.name.replace(/\s·\s.*$/, "");
+  const purpose = document.createElement("p");
+  purpose.className = "purpose";
+  purpose.textContent = sk.short;
+
+  el.append(top, h3, purpose);
+
+  if (sk.featured) {
+    const files = document.createElement("div");
+    files.className = "files";
+    files.innerHTML = sk.files.map((f) => '<span><i class="d">·</i> ' + f + "</span>").join("");
+    el.append(files);
+  }
+
+  const foot = document.createElement("div");
+  foot.className = "entry-foot";
+  const meta = document.createElement("div");
+  meta.className = "entry-meta";
+  meta.innerHTML = "<span>" + sk.files.length + " 个文件</span><span>v" + sk.version + "</span>";
+  const actions = document.createElement("div");
+  actions.className = "entry-actions";
+  const copyBtn = document.createElement("button");
+  copyBtn.className = "btn-ink";
+  copyBtn.textContent = "复制安装指令";
+  copyBtn.onclick = () => copyText(installPrompt(sk), copyBtn, "安装指令已复制，发给你的 AI");
+  const more = document.createElement("button");
+  more.className = "btn-text";
+  more.textContent = "详情";
+  more.onclick = () => openSheet(sk, cat);
+  actions.append(copyBtn, more);
+  foot.append(meta, actions);
+  el.append(foot);
+  return el;
 }
 
-function openModal(sk) {
-  const m = $("#modal");
-  const detail = sk.detail.map((d) => {
+function renderList() {
+  const list = filtered();
+  $("#count").textContent = list.length + " 个";
+  const box = $("#entries");
+  box.innerHTML = "";
+  $("#empty").style.display = list.length ? "none" : "block";
+  list.forEach((sk, i) => box.appendChild(entryEl(sk, i)));
+}
+
+function openSheet(sk, cat) {
+  const s = $("#sheet");
+  s.style.setProperty("--cat", cat);
+  const items = sk.detail.map((d) => {
     const i = d.indexOf("：");
-    return "<p><b>" + d.slice(0, i + 1) + "</b>" + d.slice(i + 1) + "</p>";
+    return "<li><b>" + d.slice(0, i + 1) + "</b>" + d.slice(i + 1) + "</li>";
   }).join("");
   const files = sk.file_urls.map((u) => {
     const rel = u.replace(SITE + "/skills/" + sk.slug + "/", "");
-    return '<div><a href="' + u + '" target="_blank" rel="noopener">' + sk.slug + "/" + rel + "</a></div>";
+    return '<div class="filelink"><a href="' + u + '" target="_blank" rel="noopener">' + sk.slug + "/" + rel + "</a></div>";
   }).join("");
-  m.innerHTML =
-    '<h2><span class="tile" style="background:' + tileGrad(sk) + '">' + sk.emoji + "</span>" + sk.name + "</h2>"
-    + '<div class="slug">' + sk.slug + " · v" + sk.version + " · " + sk.category + "</div>"
-    + '<div class="detail">' + detail + "</div>"
-    + "<h4>文件清单（点击看原文）</h4>"
-    + '<div class="filelist">' + files + "</div>"
-    + '<div class="close-bar"><button class="btn primary" id="m-copy">📋 复制安装指令</button><button class="btn ghost" id="m-close">关闭</button></div>';
+  s.innerHTML =
+    '<span class="inv">/' + sk.slug + "</span>"
+    + "<h2>" + sk.name + "</h2>"
+    + '<div class="meta">' + sk.category + " · v" + sk.version + " · " + sk.files.length + " 个文件"
+    + (sk.source ? ' · <a href="' + sk.source + '" target="_blank" rel="noopener">原始来源</a>' : "") + "</div>"
+    + "<ul>" + items + "</ul>"
+    + "<h4>文件清单</h4>" + files
+    + '<div class="close-row"><button class="btn-ink" id="sheet-copy">复制安装指令</button><button class="btn-text" id="sheet-close">关闭</button></div>';
   $("#mask").classList.add("open");
-  $("#m-copy").onclick = (e) => copyText(installPrompt(sk), e.target, "安装指令已复制，发给你的 AI 即可");
-  $("#m-close").onclick = closeModal;
+  $("#sheet-copy").onclick = (e) => copyText(installPrompt(sk), e.target, "安装指令已复制，发给你的 AI");
+  $("#sheet-close").onclick = closeSheet;
 }
-function closeModal() { $("#mask").classList.remove("open"); }
-$("#mask").addEventListener("click", (e) => { if (e.target === $("#mask")) closeModal(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+function closeSheet() { $("#mask").classList.remove("open"); }
+$("#mask").addEventListener("click", (e) => { if (e.target === $("#mask")) closeSheet(); });
 
-$("#search").addEventListener("input", (e) => { keyword = e.target.value.trim(); renderGrid(); });
-$("#copy-ai").onclick = () => copyText(aiPrompt(), $("#copy-ai"), "通用安装指令已复制");
+$("#search").addEventListener("input", (e) => { keyword = e.target.value.trim(); renderList(); });
+$("#copy-ai").onclick = () => copyText(aiPrompt(), $("#copy-ai"), "已复制，交给你的 AI");
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") { closeSheet(); $("#search").blur(); }
+  if (e.key === "/" && document.activeElement !== $("#search")) {
+    e.preventDefault();
+    $("#search").focus();
+  }
+});
 
 fetch(SITE + "/skills/index.json")
   .then((r) => r.json())
   .then((d) => {
     DATA = d;
-    $("#ai-prompt").textContent = aiPrompt();
-    renderStats();
-    renderChips();
-    renderGrid();
+    $("#mast-meta").textContent = d.count + " 个技能 · " + d.updated;
+    $("#ai-cmd").textContent = aiPrompt();
+    renderFilters();
+    renderList();
   })
   .catch(() => {
-    $("#grid").innerHTML = '<div class="empty" style="display:block">数据加载失败，请直接访问 <a href="/skills/index.json">/skills/index.json</a></div>';
+    $("#entries").innerHTML = '<div class="empty" style="display:block">数据加载失败。可直接访问 <a href="/skills/index.json">/skills/index.json</a> 取原始数据。</div>';
   });
 </script>
 </body>

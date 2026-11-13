@@ -3,9 +3,41 @@
   "updated": "2026-11-13",
   "base_url": "https://shawn2016.github.io/skills",
   "install_to": "~/.workbuddy/skills/<slug>/",
-  "count": 7,
+  "count": 8,
   "install_hint": "把每个 file_urls 里的文件原文下载，按相对路径写入 ~/.workbuddy/skills/<slug>/ 对应位置，新开会话后用 /<slug> 调用。",
   "skills": [
+    {
+      "slug": "frontend-design",
+      "name": "Frontend Design · 前端设计",
+      "emoji": "▚",
+      "category": "产品设计",
+      "tags": [
+        "设计",
+        "排版",
+        "前端",
+        "视觉"
+      ],
+      "version": "1.0",
+      "featured": true,
+      "source": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "license": "Apache-2.0（见 LICENSE.txt）",
+      "short": "给新界面或改版定一套有性格的视觉方案：先出设计计划（色/字/版/原则）再写代码，主动避开一眼像 AI 生成的默认套路。",
+      "detail": [
+        "解决什么：AI 做界面总是落在同一套默认：奶油底 + 衬线大标题、一整片同款圆角卡片 + 同一种灰阴影、渐变当装饰、全大写小标签、等宽字当数据标签。",
+        "怎么工作：先写设计计划——4-6 个命名色值、字体分工、布局概念（一段话 + ASCII 线框）、原则；然后自我审稿，凡是在任何同类页面上都会做的选择就改掉；最后才写代码。",
+        "什么时候用：新做页面、或觉得现有页面「一看就是 AI 做的」要重做视觉时。它给的是判断标准，不是配色表。",
+        "来源：Anthropic 官方 skills 仓库示例，Apache-2.0。本次技能广场改版就是照它做的。"
+      ],
+      "files": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/frontend-design/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/frontend-design/LICENSE.txt",
+        "https://shawn2016.github.io/skills/frontend-design/SKILL.md"
+      ]
+    },
     {
       "slug": "ambition",
       "name": "Ambition · 先想透再动手",
