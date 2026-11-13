@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>风格设计稿骨架 · 内容契约驱动</title>
+<!--
+用法（给执行 Skill 的 Agent，不是给最终用户看的界面注释）：
+
+1. 先在 candidates.json 里写 content_contract，结构示例：
+
+   {
+     "source": "prototype.html vX.X · <page-id> 信息项",
+     "excluded": ["演示数据横幅", "PRD/原型版本号", "评审面板", "说明角标"],
+     "page_title": "工作台",
+     "greeting": "晚上好，微信老师",
+     "date": "11月10日 周二",
+     "metrics": [{"value":"5","label":"在读学生","icon":"users"}, ...],
+     "todo_section": "待办提醒",
+     "todos": [{"label":"待记课（待办卡片）","value":"0"}, ...],
+     "quick_section": "快捷入口",
+     "quick": ["添加学生", ...],
+     "today_section": "今日课程",
+     "empty": "今天没有课 / 空状态",
+     "primary_action": "去排课",
+     "tabs": ["工作台","学生","课表","记录","我的"]
+   }
+
+2. 每个风格方向独立写一个 HTML 设计稿（style-A.html …），允许且应当使用不同的
+   DOM 结构。下面只是一个最小容器骨架，不是必须复制的结构。
+
+3. 视觉编排至少重排 2 组信息结构：头部形态、指标呈现、待办分组、快捷入口、
+   空状态、底部导航、图形语言，见 references/style-dimensions.md §五。
+
+4. CSS 顶部放 :root token（命名前缀见 style-dimensions.md §二），值由各方向覆盖；
+   填充色与文字色必须分开（--brand / --brand-text）。
+
+5. 图标、图形、插画一律自绘，禁止复制参考站素材。
+
+6. 用 scripts/derive_designs.py 生成稿件、并排对比页与 contract-check.json。
+   校验的是内容契约齐备，不是 DOM 字节一致。
+
+【反面清单 · 出现任意一条即判定不合格】
+  - 从 prototype.html 复制首页 DOM，只覆盖 :root 颜色/圆角/间距 → 换肤，不是设计。
+  - 5 张稿并排缩小时看起来是同一张图，只是配色不同。
+  - 卡片数量、分组方式、空状态位置、导航形态与原型完全一致。
+  - 设计稿里出现「演示数据」「原型 vX.X」「PRD vX.X」等评审道具文案。
+  - 高饱和主色直接用作白底上的数值文字色，导致不可读。
+
+【说明】本骨架不含任何第三方素材，也不含项目固定文案；真实文案一律从内容契约读取。
+-->
+<style>
+:root {
+  /* 填充角色 */
+  --color-primary: #475569;
+  --color-success: #2F6B57;
+  --color-warning: #B45309;
+  --color-danger:  #A44A3A;
+  --color-on-primary: #FFFFFF;
+  /* 文字角色：与填充色分开，深底/高饱和主题下必须单独取值 */
+  --color-primary-text: #475569;
+  /* 中性 6 阶 */
+  --neutral-bg: #F7F8FA;
+  --neutral-surface: #FFFFFF;
+  --neutral-border: #E2E8F0;
+  --neutral-text: #1E293B;
+  --neutral-secondary: #667085;
+  --neutral-placeholder: #94A3B8;
+  /* 结构轴 */
+  --radius-card: 8;
+  --radius-button: 6;
+  --radius-input: 5;
+  --radius-modal: 12;
+  --space-step: 4;
+  --space-scale: 1;
+  --font-scale: 1;
+  --elev-card: 0 1px 2px rgba(15,23,42,.06);
+  --icon-stroke: 1.5;
+  --surface-page: var(--neutral-bg);
+  --surface-card: var(--neutral-surface);
+}
+/* 仅演示变量层写法，实际设计稿请自行编写完整构图样式 */
+body { margin:0; background:#e8ebef; font:14px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+.screen { width:390px; height:820px; margin:0 auto; overflow:hidden; position:relative;
+          display:flex; flex-direction:column; background:var(--surface-page); color:var(--neutral-text); }
+</style>
+</head>
+<body>
+<div class="screen">
+  <!-- 此处由各方向独立构图；信息项从 content_contract 读取，不得增删或改写 -->
+</div>
+</body>
+</html>

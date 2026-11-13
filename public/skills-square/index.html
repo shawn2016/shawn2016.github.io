@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills 广场 - Shawn 的数字花园</title>
+<meta name="description" content="Shawn 的自用 AI 技能收藏：给人看用途和用法，给 AI 看可下载的 SKILL.md，一键复制安装指令。">
+<style>
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1c1e21;
+  --muted: #8a919c;
+  --line: #ececf0;
+  --accent: #e5484d;
+  --accent-soft: #fdecec;
+  --accent-line: #f7c8c9;
+  --chip-bg: #ffffff;
+  --tile: #fdecec;
+  --shadow: 0 1px 3px rgba(16, 20, 28, 0.06);
+  --shadow-hover: 0 8px 24px rgba(16, 20, 28, 0.10);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181d;
+    --card: #1f2228;
+    --text: #e8eaed;
+    --muted: #9aa1ab;
+    --line: #2c3038;
+    --accent: #ef6b6f;
+    --accent-soft: #2d2023;
+    --accent-line: #4a3033;
+    --chip-bg: #1f2228;
+    --tile: #2d2023;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px; }
+a { color: var(--accent); text-decoration: none; }
+
+.hero h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.5px; }
+.hero p.sub { color: var(--muted); margin-top: 8px; font-size: 15px; }
+.hero .back { font-size: 13px; color: var(--muted); display: inline-block; margin-bottom: 18px; }
+.hero .back:hover { color: var(--accent); }
+
+.search-box {
+  margin-top: 28px; display: flex; align-items: center; gap: 10px;
+  background: var(--card); border: 2px solid var(--accent-line); border-radius: 14px;
+  padding: 13px 18px; box-shadow: var(--shadow);
+}
+.search-box:focus-within { border-color: var(--accent); }
+.search-box svg { flex: none; width: 18px; height: 18px; stroke: var(--muted); }
+.search-box input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-size: 15px; color: var(--text); font-family: inherit;
+}
+.search-box input::placeholder { color: var(--muted); }
+
+.chips { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.chips .filter-icon { color: var(--muted); font-size: 14px; }
+.chip {
+  border: 1px solid var(--line); background: var(--chip-bg); color: var(--text);
+  padding: 6px 16px; border-radius: 999px; font-size: 14px; cursor: pointer;
+  transition: all 0.15s; font-family: inherit;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+.count-line { margin-top: 16px; color: var(--muted); font-size: 13px; }
+
+.grid {
+  margin-top: 20px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+}
+.card {
+  background: var(--card); border-radius: 16px; padding: 22px;
+  box-shadow: var(--shadow); border: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.card .head { display: flex; gap: 12px; align-items: flex-start; }
+.tile {
+  flex: none; width: 44px; height: 44px; border-radius: 12px;
+  background: var(--tile); display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.card h3 { font-size: 16.5px; font-weight: 700; line-height: 1.35; }
+.card .slug { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--muted); }
+.card .desc { font-size: 13.5px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 11.5px; padding: 3px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line);
+}
+.meta-line { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12.5px; }
+.badge { background: #ffb02e; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 6px; font-weight: 600; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn {
+  border: none; border-radius: 10px; padding: 9px 0; font-size: 13.5px; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: filter 0.15s, background 0.15s;
+}
+.btn.primary { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); }
+.btn.primary:hover { filter: brightness(0.96); }
+.btn.primary.copied { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.btn.ghost:hover { color: var(--accent); border-color: var(--accent-line); }
+
+.empty { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; display: none; }
+
+/* 模态框 */
+.modal-mask {
+  display: none; position: fixed; inset: 0; background: rgba(12, 14, 18, 0.5);
+  z-index: 50; padding: 24px; overflow-y: auto;
+}
+.modal-mask.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal {
+  background: var(--card); border-radius: 18px; max-width: 640px; width: 100%;
+  margin: auto; padding: 28px; box-shadow: var(--shadow-hover);
+}
+.modal h2 { font-size: 20px; display: flex; align-items: center; gap: 10px; }
+.modal .slug { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: var(--muted); }
+.modal .detail { margin: 18px 0; display: flex; flex-direction: column; gap: 10px; }
+.modal .detail p { font-size: 14px; color: var(--text); }
+.modal .detail p b { color: var(--accent); }
+.modal h4 { font-size: 13px; color: var(--muted); margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.filelist { font-family: ui-monospace, Menlo, monospace; font-size: 12px; background: var(--bg); border-radius: 10px; padding: 12px 14px; }
+.filelist div { padding: 2px 0; word-break: break-all; }
+.filelist a { color: var(--accent); }
+.modal .close-bar { display: flex; gap: 10px; margin-top: 20px; }
+.modal .close-bar .btn { padding: 10px 0; }
+
+/* AI 入口 */
+.ai-section {
+  margin-top: 56px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 24px 26px; box-shadow: var(--shadow);
+}
+.ai-section h2 { font-size: 17px; margin-bottom: 10px; }
+.ai-section p { font-size: 13.5px; color: var(--muted); }
+.ai-section code {
+  font-family: ui-monospace, Menlo, monospace; font-size: 12.5px;
+  background: var(--bg); padding: 2px 6px; border-radius: 5px; color: var(--accent);
+}
+.ai-section .prompt-box {
+  margin-top: 14px; background: var(--bg); border-radius: 12px; padding: 14px 16px;
+  font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; white-space: pre-wrap;
+  color: var(--text);
+}
+.ai-section .copy-row { margin-top: 12px; }
+.ai-section .btn.primary { padding: 9px 22px; }
+
+footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 12.5px; }
+.toast {
+  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg); font-size: 13.5px; padding: 9px 20px;
+  border-radius: 999px; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 99;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <a class="back" href="/">← 返回 Shawn 的数字花园</a>
+    <h1>Skills 广场</h1>
+    <p class="sub">我的自用 AI 技能：给人看「是干嘛的、怎么用」，给 AI 看「下载哪里、怎么装」——一键复制安装指令，丢给你的 AI 就行</p>
+  </div>
+
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="search" type="search" placeholder="搜索技能名、用途、标签…" autocomplete="off">
+  </div>
+
+  <div class="chips" id="chips">
+    <span class="filter-icon">☰</span>
+  </div>
+  <div class="count-line" id="count-line"></div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">没有匹配的技能，换个关键词试试</div>
+
+  <div class="ai-section">
+    <h2>🤖 给 AI / Agent 的入口</h2>
+    <p>如果你是 AI：读取 <code>https://shawn2016.github.io/skills/index.json</code> 即可获得全部技能的元数据与文件清单；每个 SKILL.md 都是纯文本原文，按 <code>install_to</code> 与 <code>file_urls</code> 落盘即可安装，装完用 <code>/&lt;slug&gt;</code> 调用。</p>
+    <div class="prompt-box" id="ai-prompt"></div>
+    <div class="copy-row"><button class="btn primary" id="copy-ai">📋 复制通用安装指令</button></div>
+  </div>
+
+  <footer>Shawn 的数字花园 · <a href="https://github.com/shawn2016">GitHub</a> · 数据源 <a href="/skills/index.json">skills/index.json</a></footer>
+</div>
+
+<div class="modal-mask" id="mask">
+  <div class="modal" id="modal"></div>
+</div>
+<div class="toast" id="toast">已复制</div>
+
+<script>
+const SITE = "https://shawn2016.github.io";
+let DATA = null, activeCat = "全部", keyword = "";
+
+const $ = (s) => document.querySelector(s);
+
+function installPrompt(sk) {
+  const lines = sk.file_urls.map((u, i) => {
+    const rel = u.replace(SITE + "/skills/" + sk.slug + "/", "");
+    return "   " + (i + 1) + ". " + u + "\n      → ~/.workbuddy/skills/" + sk.slug + "/" + rel;
+  }).join("\n");
+  return "请帮我把这个 Skill 安装到我的 WorkBuddy：\n"
+    + "1. 逐个获取下列文件的原文（纯文本），按「→」后面的路径写入（先创建目录）：\n"
+    + lines + "\n"
+    + "2. 全部写完后，列出已创建的文件清单让我确认。\n"
+    + "3. 提醒我：新开一个会话，输入 / 查看技能列表里是否出现 " + sk.slug + "，之后用 /" + sk.slug + " 调用。";
+}
+
+function aiPrompt() {
+  return "请读取 " + SITE + "/skills/index.json，列出里面所有 skills 的名字（name）和一句话用途（short），等我挑选后再按 install_hint 安装对应技能。";
+}
+
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+function copyText(text, btn, doneMsg) {
+  const done = () => {
+    toast(doneMsg || "已复制，去发给你的 AI 吧");
+    if (btn) {
+      const old = btn.textContent;
+      btn.textContent = "✓ 已复制";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = old; btn.classList.remove("copied"); }, 1600);
+    }
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallback());
+  } else fallback();
+  function fallback() {
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand("copy"); ta.remove(); done();
+  }
+}
+
+function renderChips() {
+  const cats = ["全部", ...new Set(DATA.skills.map((s) => s.category))];
+  const box = $("#chips");
+  cats.forEach((c) => {
+    const b = document.createElement("button");
+    b.className = "chip" + (c === activeCat ? " active" : "");
+    b.textContent = c;
+    b.onclick = () => { activeCat = c; renderChips(); renderGrid(); };
+    box.appendChild(b);
+  });
+}
+
+function filtered() {
+  return DATA.skills.filter((s) => {
+    const okCat = activeCat === "全部" || s.category === activeCat;
+    const hay = (s.name + s.slug + s.short + s.tags.join(" ")).toLowerCase();
+    return okCat && (!keyword || hay.includes(keyword.toLowerCase()));
+  });
+}
+
+function renderGrid() {
+  const list = filtered();
+  $("#count-line").textContent = "共 " + list.length + " 个技能" + (activeCat === "全部" ? "" : " · " + activeCat);
+  const grid = $("#grid");
+  grid.innerHTML = "";
+  $("#empty").style.display = list.length ? "none" : "block";
+  list.forEach((sk) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const head = document.createElement("div"); head.className = "head";
+    head.innerHTML = '<div class="tile">' + sk.emoji + '</div><div><h3>' + sk.name + '</h3><div class="slug">' + sk.slug + '</div></div>';
+    const desc = document.createElement("div"); desc.className = "desc"; desc.textContent = sk.short;
+    const tags = document.createElement("div"); tags.className = "tags";
+    sk.tags.forEach((t) => { const el = document.createElement("span"); el.className = "tag"; el.textContent = "#" + t; tags.appendChild(el); });
+    const meta = document.createElement("div"); meta.className = "meta-line";
+    meta.innerHTML = '<span>📥 ' + sk.files.length + ' 个文件 · v' + sk.version + '</span><span class="badge">' + sk.category + "</span>";
+    const actions = document.createElement("div"); actions.className = "actions";
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "btn primary";
+    copyBtn.textContent = "📋 复制安装指令";
+    copyBtn.onclick = () => copyText(installPrompt(sk), copyBtn, "安装指令已复制，发给你的 AI 即可");
+    const moreBtn = document.createElement("button");
+    moreBtn.className = "btn ghost";
+    moreBtn.textContent = "查看详情";
+    moreBtn.onclick = () => openModal(sk);
+    actions.append(copyBtn, moreBtn);
+    card.append(head, desc, tags, meta, actions);
+    grid.appendChild(card);
+  });
+}
+
+function openModal(sk) {
+  const m = $("#modal");
+  const detail = sk.detail.map((d) => {
+    const i = d.indexOf("：");
+    return "<p><b>" + d.slice(0, i + 1) + "</b>" + d.slice(i + 1) + "</p>";
+  }).join("");
+  const files = sk.file_urls.map((u) => {
+    const rel = u.replace(SITE + "/skills/" + sk.slug + "/", "");
+    return '<div><a href="' + u + '" target="_blank" rel="noopener">' + sk.slug + "/" + rel + "</a></div>";
+  }).join("");
+  m.innerHTML =
+    '<h2><span class="tile">' + sk.emoji + "</span>" + sk.name + "</h2>"
+    + '<div class="slug">' + sk.slug + " · v" + sk.version + " · " + sk.category + "</div>"
+    + '<div class="detail">' + detail + "</div>"
+    + "<h4>文件清单（点击看原文）</h4>"
+    + '<div class="filelist">' + files + "</div>"
+    + '<div class="close-bar"><button class="btn primary" id="m-copy">📋 复制安装指令</button><button class="btn ghost" id="m-close">关闭</button></div>';
+  $("#mask").classList.add("open");
+  $("#m-copy").onclick = (e) => copyText(installPrompt(sk), e.target, "安装指令已复制，发给你的 AI 即可");
+  $("#m-close").onclick = closeModal;
+}
+function closeModal() { $("#mask").classList.remove("open"); }
+$("#mask").addEventListener("click", (e) => { if (e.target === $("#mask")) closeModal(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+$("#search").addEventListener("input", (e) => { keyword = e.target.value.trim(); renderGrid(); });
+$("#copy-ai").onclick = () => copyText(aiPrompt(), $("#copy-ai"), "通用安装指令已复制");
+
+fetch(SITE + "/skills/index.json")
+  .then((r) => r.json())
+  .then((d) => {
+    DATA = d;
+    $("#ai-prompt").textContent = aiPrompt();
+    renderChips();
+    renderGrid();
+  })
+  .catch(() => {
+    $("#grid").innerHTML = '<div class="empty" style="display:block">数据加载失败，请直接访问 <a href="/skills/index.json">/skills/index.json</a></div>';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+{
+  "title": "Shawn 的 Skills 广场",
+  "updated": "2026-11-13",
+  "base_url": "https://shawn2016.github.io/skills",
+  "install_to": "~/.workbuddy/skills/<slug>/",
+  "count": 7,
+  "install_hint": "把每个 file_urls 里的文件原文下载，按相对路径写入 ~/.workbuddy/skills/<slug>/ 对应位置，新开会话后用 /<slug> 调用。",
+  "skills": [
+    {
+      "slug": "ambition",
+      "name": "Ambition · 先想透再动手",
+      "emoji": "🧭",
+      "category": "任务纪律",
+      "tags": [
+        "任务纪律",
+        "AI 协作",
+        "方法论"
+      ],
+      "version": "1.0.0",
+      "short": "接到复杂任务先分层理解意图、比较多条路径再动手，防止 AI 只做最小实现。治「说一句做一句」。",
+      "detail": [
+        "解决什么：让 AI 执行任务时不满足于字面指令，避免「只做最小实现」。",
+        "怎么工作：意图分层（你说的 / 你想要的 / 你想要的背后）→ 动手前比较至少两条路径 → 用外部结果验证而不是自我评估。",
+        "什么时候用：任何非平凡任务——写功能、改脚本、调试、重构、写文档。触发词：深思、更有雄心、别只做最小实现、先想透。",
+        "依赖：无，纯提示词纪律，装完即用。"
+      ],
+      "files": [
+        "SKILL.md",
+        "references/playbook.md",
+        "references/prompts.md"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/ambition/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/ambition/SKILL.md",
+        "https://shawn2016.github.io/skills/ambition/references/playbook.md",
+        "https://shawn2016.github.io/skills/ambition/references/prompts.md"
+      ]
+    },
+    {
+      "slug": "dispatch-advisor",
+      "name": "Dispatch Advisor · 派活顾问",
+      "emoji": "🚦",
+      "category": "任务纪律",
+      "tags": [
+        "任务纪律",
+        "多引擎协作",
+        "决策"
+      ],
+      "version": "1.0.0",
+      "short": "判断哪些活适合派给外部引擎（codex / cursor / claude 等），动手前先问你拿主意，给出建议命令。",
+      "detail": [
+        "解决什么：WorkBuddy 默认自己干所有活，但有些大活更适合外部引擎执行，浪费时间还不一定做得好。",
+        "怎么工作：识别任务类型（大块代码生成 / 重构 / 调试），命中时先暂停，说明推荐派给谁、为什么、命令怎么写，由你拍板。",
+        "什么时候用：任务量大、或你提到 cursor / codex / claude / 分工 / 派活等词时自动触发。",
+        "依赖：无。它只做决策建议，不真正调度外部引擎。"
+      ],
+      "files": [
+        "SKILL.md"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/dispatch-advisor/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/dispatch-advisor/SKILL.md"
+      ]
+    },
+    {
+      "slug": "bilibili-to-post",
+      "name": "Bilibili to Post · 视频转文章",
+      "emoji": "📺",
+      "category": "写作发布",
+      "tags": [
+        "写作发布",
+        "B站",
+        "ASR",
+        "流水线"
+      ],
+      "version": "1.1.0",
+      "short": "把 B 站视频解析成一篇有你自己判断的文章并发布到 github.io：两路转录交叉核验、术语反幻觉、提炼成文。",
+      "detail": [
+        "解决什么：看视频记不住、转录稿是复述不是内容。这条流水线的产物是「视频观点 → 你的判断」。",
+        "怎么工作：yt-dlp 下音频 → 本地 Whisper + 云端 ASR 两路转录 → 术语反幻觉核验（错 6 个是实测均值）→ 提炼+对照+找缺口成文 → 发布并逐 URL 验证。",
+        "什么时候用：发来 B 站链接说「解析」「写成文章」「发到 github.io」。",
+        "依赖：本机 yt-dlp（带 chrome cookies）、ffmpeg、/usr/bin/python3 的 faster-whisper、gh 登录 shawn2016。换机器要重新配环境。"
+      ],
+      "files": [
+        "SKILL.md",
+        "scripts/publish.py",
+        "scripts/transcribe.py"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/bilibili-to-post/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/bilibili-to-post/SKILL.md",
+        "https://shawn2016.github.io/skills/bilibili-to-post/scripts/publish.py",
+        "https://shawn2016.github.io/skills/bilibili-to-post/scripts/transcribe.py"
+      ]
+    },
+    {
+      "slug": "github-io-post",
+      "name": "GitHub IO Post · 信源转文章",
+      "emoji": "✍️",
+      "category": "写作发布",
+      "tags": [
+        "写作发布",
+        "调研",
+        "开源项目"
+      ],
+      "version": "1.0.0",
+      "short": "把 GitHub 仓库、网页或一个主题调研成一篇采集类文章：源码级证据、实操步骤、同类方案对比表，发布并验证。",
+      "detail": [
+        "解决什么：工具类文章只讲原理不讲实操，「知道原理有啥用」。",
+        "怎么工作：gh api 调研（不 clone，防 Exit 137）→ WHY→HOW→WHAT 成文 → 实操步骤 + 判据维度对比表 → 落地本地数字花园 + 站点 → 判据库追加 → Pages 部署验证。",
+        "什么时候用：发来仓库/网页链接说「调研一下并写篇文章」「发到 github.io」，或给个主题要写成收藏文章。",
+        "依赖：gh 已登录目标仓库账号。"
+      ],
+      "files": [
+        "SKILL.md",
+        "scripts/publish.py"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/github-io-post/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/github-io-post/SKILL.md",
+        "https://shawn2016.github.io/skills/github-io-post/scripts/publish.py"
+      ]
+    },
+    {
+      "slug": "idea-to-prd-prototype",
+      "name": "Idea to PRD Prototype · 想法变原型",
+      "emoji": "💡",
+      "category": "产品设计",
+      "tags": [
+        "产品设计",
+        "PRD",
+        "原型"
+      ],
+      "version": "1.0.0",
+      "short": "把模糊产品想法经追问澄清、PRD 草案与评审，做成可点击的 HTML 原型，双基线确认后才停止。",
+      "detail": [
+        "解决什么：想法还模糊就开始画页面，返工十轮。",
+        "怎么工作：追问澄清 → 行业专家视角指导 → PRD 草案与评审 → 低保真线框 → 完整可操作 HTML 原型 → 用户确认记录。PRD v1.0 和原型 v1.0 都有版本化产物。",
+        "什么时候用：你说「我有个产品想法」「帮我做个网站/小程序」且需求还没想清楚时。",
+        "依赖：无外部服务，纯流程纪律。"
+      ],
+      "files": [
+        "SKILL.md",
+        "references/baseline-schema.md",
+        "references/prd-template.md",
+        "references/prototype-spec.md",
+        "references/review-checklists.md",
+        "scripts/test_validate_baseline.py",
+        "scripts/validate_baseline.py"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/idea-to-prd-prototype/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/SKILL.md",
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/references/baseline-schema.md",
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/references/prd-template.md",
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/references/prototype-spec.md",
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/references/review-checklists.md",
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/scripts/test_validate_baseline.py",
+        "https://shawn2016.github.io/skills/idea-to-prd-prototype/scripts/validate_baseline.py"
+      ]
+    },
+    {
+      "slug": "prototype-to-design-spec",
+      "name": "Prototype to Design Spec · 原型变规范",
+      "emoji": "🎨",
+      "category": "产品设计",
+      "tags": [
+        "产品设计",
+        "UI",
+        "设计系统"
+      ],
+      "version": "1.0.0",
+      "short": "确认后的原型 → 4-5 版独立风格稿 → 你选定 → 抽成设计规范（design-tokens），后续页面可一致性回归。",
+      "detail": [
+        "解决什么：AI 做出来的界面每页风格都不一样，没有规范可对照。",
+        "怎么工作：参考风格学习 → 锁定首页内容契约 → 多版独立构图风格稿 → UX 评审 → 设计规范抽取（design-spec.md + design-tokens.json）→ 其余 tab 按规范生成并做一致性回归。",
+        "什么时候用：PRD 和原型已双基线确认、要定 UI 风格或沉淀设计系统时。",
+        "依赖：无外部服务；产出可直接喂给后续开发流程。"
+      ],
+      "files": [
+        "SKILL.md",
+        "assets/candidate-shell.html",
+        "assets/comparison-shell.html",
+        "assets/design-tokens.schema.json",
+        "references/design-spec-template.md",
+        "references/reference-study.md",
+        "references/spec-regression.md",
+        "references/state-schema.md",
+        "references/stitch-workflow.md",
+        "references/style-dimensions.md",
+        "references/ux-review-checklist.md",
+        "scripts/derive_designs.py",
+        "scripts/test_validate_design_baseline.py",
+        "scripts/validate_design_baseline.py"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/prototype-to-design-spec/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/SKILL.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/assets/candidate-shell.html",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/assets/comparison-shell.html",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/assets/design-tokens.schema.json",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/design-spec-template.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/reference-study.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/spec-regression.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/state-schema.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/stitch-workflow.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/style-dimensions.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/references/ux-review-checklist.md",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/scripts/derive_designs.py",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/scripts/test_validate_design_baseline.py",
+        "https://shawn2016.github.io/skills/prototype-to-design-spec/scripts/validate_design_baseline.py"
+      ]
+    },
+    {
+      "slug": "macos-sleep-diagnosis",
+      "name": "macOS Sleep Diagnosis · 睡眠诊断",
+      "emoji": "😴",
+      "category": "系统效率",
+      "tags": [
+        "系统效率",
+        "macOS",
+        "诊断"
+      ],
+      "version": "1.0.0",
+      "short": "诊断 macOS 合盖不睡眠 / 空闲不睡眠 / 自动唤醒，找出阻止睡眠的具体 App，也适用 sudo 被拦的场景。",
+      "detail": [
+        "解决什么：Mac 合盖了还在发烫掉电，不知道是谁不让睡。",
+        "怎么工作：读 powermetrics / pmset / log 的证据，定位阻止睡眠的进程，给出针对性修复；对需要 root 又被 sudo 拦的场景有专门处理。",
+        "什么时候用：合盖不睡、睡了又醒、耗电异常、风扇狂转。",
+        "依赖：仅 macOS 本机命令，无外部服务。"
+      ],
+      "files": [
+        "SKILL.md"
+      ],
+      "skill_md": "https://shawn2016.github.io/skills/macos-sleep-diagnosis/SKILL.md",
+      "file_urls": [
+        "https://shawn2016.github.io/skills/macos-sleep-diagnosis/SKILL.md"
+      ]
+    }
+  ]
+}

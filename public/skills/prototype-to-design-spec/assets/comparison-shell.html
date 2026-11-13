@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页风格候选对比</title>
+<!--
+用法：保存为 03-style-candidates/comparison.html。
+候选数量按实际生成数量调整（4 或 5 个），每列 iframe 指向同目录的 style-X.html。
+每列标题、定位、适用场景/代价/风险三行必须填写；不替用户排序、不标注「推荐」。
+-->
+<style>
+  :root { --ink:#1D2330; --sub:#667085; --line:#E6E9EF; --bg:#F7F8FA; --panel:#FFFFFF; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:24px; background:var(--bg); color:var(--ink);
+         font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  .lead { color:var(--sub); margin:0 0 20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; align-items:start; }
+  .col { background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .col header { padding:12px 14px; border-bottom:1px solid var(--line); }
+  .col h2 { font-size:15px; margin:0; }
+  .col .tagline { color:var(--sub); font-size:12px; margin-top:2px; }
+  .stage { padding:12px; display:flex; justify-content:center; background:var(--bg); }
+  .stage iframe { width:100%; height:460px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+  .notes { padding:12px 14px; font-size:12px; color:var(--sub); }
+  .notes p { margin:0 0 4px; }
+  .notes b { color:var(--ink); font-weight:600; }
+  footer { margin-top:20px; color:var(--sub); font-size:12px; }
+</style>
+</head>
+<body>
+  <h1>首页风格候选对比</h1>
+  <p class="lead">结构、文案、数据与已确认原型完全一致，仅视觉 token 不同。请在并排视图中选定一个方向，或说明全部不满意的具体维度。</p>
+
+  <div class="grid">
+    <section class="col">
+      <header><h2>A · 克制极简</h2><div class="tagline">少色、少装饰、靠留白建立层级</div></header>
+      <div class="stage"><iframe src="style-A.html" title="风格 A 首页"></iframe></div>
+      <div class="notes">
+        <p><b>适用场景：</b>填写</p>
+        <p><b>代价：</b>填写</p>
+        <p><b>已知风险：</b>填写</p>
+      </div>
+    </section>
+    <section class="col">
+      <header><h2>B · 柔和亲和</h2><div class="tagline">低饱和浅色、圆润、轻卡片</div></header>
+      <div class="stage"><iframe src="style-B.html" title="风格 B 首页"></iframe></div>
+      <div class="notes">
+        <p><b>适用场景：</b>填写</p>
+        <p><b>代价：</b>填写</p>
+        <p><b>已知风险：</b>填写</p>
+      </div>
+    </section>
+    <section class="col">
+      <header><h2>C · 卡片分层</h2><div class="tagline">明确分组、信息密度高</div></header>
+      <div class="stage"><iframe src="style-C.html" title="风格 C 首页"></iframe></div>
+      <div class="notes">
+        <p><b>适用场景：</b>填写</p>
+        <p><b>代价：</b>填写</p>
+        <p><b>已知风险：</b>填写</p>
+      </div>
+    </section>
+    <section class="col">
+      <header><h2>D · 深色专业</h2><div class="tagline">深色背景、强数据对比</div></header>
+      <div class="stage"><iframe src="style-D.html" title="风格 D 首页"></iframe></div>
+      <div class="notes">
+        <p><b>适用场景：</b>填写</p>
+        <p><b>代价：</b>填写</p>
+        <p><b>已知风险：</b>填写</p>
+      </div>
+    </section>
+    <section class="col">
+      <header><h2>E · 手绘温度</h2><div class="tagline">柔和图形、拟人化语气</div></header>
+      <div class="stage"><iframe src="style-E.html" title="风格 E 首页"></iframe></div>
+      <div class="notes">
+        <p><b>适用场景：</b>填写</p>
+        <p><b>代价：</b>填写</p>
+        <p><b>已知风险：</b>填写</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>候选稿仅用于风格选定，不构成最终视觉交付；选定后由设计规范与各 tab 设计稿承接。</footer>
+</body>
+</html>

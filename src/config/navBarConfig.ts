@@ -36,12 +36,23 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 社交及其子菜单
+	// Skills 及其子菜单
 	links.push({
 		name: "Skills",
 		url: "/skills/",
 		icon: "material-symbols:tools-wrench",
-		children: [],
+		children: [
+			{
+				name: "技能文章",
+				url: "/skills/",
+				icon: "material-symbols:description",
+			},
+			{
+				name: "技能广场",
+				url: "/skills-square/",
+				icon: "material-symbols:grid-view-rounded",
+			},
+		],
 	});
 
 	// 我的及其子菜单
