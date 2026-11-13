@@ -112,19 +112,16 @@ python3 project_to_housespec.py   # 输入 project.json，输出 spec_B方案.js
 
 ### 步骤 3：HouseSpec → 彩平 HTML
 
-把 `spec_B方案.json` 的内容写进模板的 `window.__PRESET__ = {...}`（模板末段那个 JSON.parse 注入点），另存为设计器网页：
+用 house-plan-designer 自带的 `build.py` 注入。模板里**没有可手改的占位符**——预设是打包时注入的，`build.py` 会把 spec 包成 `{'spec': spec}`、转义 `<`、并在 `<meta charset>` 之后写入 `<script id="__preset">window.__PRESET__={...}</script>`。手改会静默失败，必须走这个工具：
 
 ```bash
-python3 - <<'PY'
-import json
-spec = open("spec_B方案.json", encoding="utf-8").read()
-tpl = open("~/.workbuddy/tools/house-plan-designer/assets/template.html", encoding="utf-8").read()
-out = tpl.replace('window.__PRESET__ = {}', 'window.__PRESET__ = ' + spec, 1)
-open("自建房首层_B方案_装修设计器.html", "w", encoding="utf-8").write(out)
-PY
+python3 ~/.workbuddy/tools/house-plan-designer/scripts/build.py \
+  spec_B方案.json \
+  -o 自建房首层_B方案_装修设计器.html \
+  --template ~/.workbuddy/tools/house-plan-designer/assets/template.html
 ```
 
-验证：双击 HTML 离线打开，能看到改造后的彩色平面 + 家具 + 2D/3D 切换。这一步没走 house-plan-designer 自带的 `build.py` 正式打包，而是直接「转换脚本 + 模板注入」，更快、可控。
+验证：双击 HTML 离线打开，能看到改造后的彩色平面 + 家具 + 2D/3D 切换。`build.py` 还会在 spec 旁生成 `.build_walls.json`（墙数比上次少会提醒，多半是生成脚本里的注释吞了代码）。本文配套「资源包」见下节，下载后可直接复现这个 HTML。
 
 ### 步骤 4：project.json → CAD DXF
 
@@ -147,6 +144,20 @@ python3 build_3d.py   # 经 MCP 把墙/板/门窗拉伸成 SKP
 建模按 `f.normal.z` 符号定 pushpull 方向，防墙挤入地下；层高用 `building.wall_height`。
 
 验证：SketchUp 打开 SKP，实体数 > 0，墙体立在 0 以上；概念模型即可，细节待现场复核。
+
+## 资源包：新 agent 直接照跑
+
+本文配套资源包已发布，含本链路在 B 方案上的完整可运行实现。新 agent 下载后**无需重写脚本**即可复现「这个」HTML（而非另起一份）：
+
+- `project.json` —— B 方案单一数据源（21K 真实几何，不是最小示例）
+- `spec_B方案.json` —— 由 `project_to_housespec.py` 生成
+- `project_to_housespec.py` —— project.json → HouseSpec 转换器
+- `plan_b_to_dxf.py` —— project.json → CAD DXF
+- `build_3d.py` + `sketchup_bridge.py` —— project.json → SketchUp 3D
+
+下载根目录：`https://shawn2016.github.io/attachments/floorplan-pipeline/kit/`
+
+最省路径：把 kit 下到本地，先 `python3 project_to_housespec.py` 得 spec，再用上面步骤 3 的 `build.py` 命令注入模板，即得与本文一致的改造后彩平 HTML。要换成你自己的户型，改 `project.json` 重跑即可——单一数据源一改，下游三套交付物全跟着变。
 
 ## 同类方案对比（按判据维度，不按功能打分）
 
